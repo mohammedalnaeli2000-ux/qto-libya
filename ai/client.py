@@ -16,7 +16,7 @@ from typing import Callable, Optional
 from core import config
 
 
-FALLBACK = {"gemini": ["gemini-flash-latest", "gemini-2.5-flash"]}     # بدائل عند انشغال النموذج
+FALLBACK = {"gemini": ["gemini-3.5-flash", "gemini-flash-latest", "gemini-3.8-flash", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"]}     # بدائل عند انشغال النموذج
 
 
 class AiUnavailable(Exception):
@@ -141,7 +141,13 @@ class AiClient:
                 except AiHttpError as e:
                     last = e
                     if e.status in (401, 403):
-                        raise AiUnavailable("مفتاح الذكاء الاصطناعي غير صالح أو بلا صلاحية") from e
+                        try:
+                            why = json.loads(e.text)["error"]["message"][:200]
+                        except (ValueError, KeyError, TypeError):
+                            why = e.text[:200]
+                        raise AiUnavailable(f"مفتاح الذكاء الاصطناعي غير صالح أو بلا صلاحية ({e.status}: {why})") from e
+                    if e.status == 400 and "API key" in e.text:
+                        raise AiUnavailable("مفتاح الذكاء الاصطناعي غير صالح (400)") from e
                     if e.status == 404:
                         break                                    # النموذج غير متاح: جرّب البديل
                     if e.status not in (429, 500, 502, 503, 504):
