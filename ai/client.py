@@ -37,7 +37,7 @@ class AiHttpError(Exception):
 
 def http_json(method: str, url: str, headers: dict, body: Optional[dict] = None, timeout: int = 60) -> dict:
     data = json.dumps(body).encode("utf-8") if body is not None else None
-    req = urllib.request.Request(url, data=data, method=method, headers={"Content-Type": "application/json", **headers})
+    req = urllib.request.Request(url, data=data, method=method, headers={"Content-Type": "application/json", "User-Agent": "QTO-Libya/2.0 (+https://qto-libya.streamlit.app)", **headers})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return json.loads(r.read().decode("utf-8"))
