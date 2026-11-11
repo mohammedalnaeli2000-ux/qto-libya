@@ -70,7 +70,39 @@ S: Session = st.session_state.s
 P = S.project
 
 
+GROQ_PREF = ("openai/gpt-oss-120b", "llama-3.3-70b-versatile", "moonshotai/kimi-k2-instruct", "qwen/qwen3-32b",
+             "openai/gpt-oss-20b", "llama-3.1-8b-instant")
+
+
+def _secret(name: str) -> str:
+    v = os.environ.get(name, "")
+    if not v:
+        try:
+            v = st.secrets.get(name, "")
+        except Exception:                                            # noqa: BLE001
+            v = ""
+    return v
+
+
+@st.cache_data(ttl=6 * 3600, show_spinner=False)
+def _groq_model(key: str) -> str:
+    """أفضل نموذج متاح في حساب Groq (الأسماء تتغير مع الوقت)."""
+    if os.environ.get("GROQ_MODEL") or _secret("GROQ_MODEL"):
+        return os.environ.get("GROQ_MODEL") or _secret("GROQ_MODEL")
+    try:
+        have = set(AiClient("groq", GROQ_PREF[0], key).list_models())
+    except Exception:                                                # noqa: BLE001
+        return GROQ_PREF[0]
+    return next((m for m in GROQ_PREF if m in have), GROQ_PREF[0])
+
+
 def ai_client():
+    gk = _secret("GROQ_API_KEY")                  # الموقع: Groq مجاني ويعمل من أي سيرفر (جيميناي المجاني محجوب من سيرفرات الاستضافة)
+    if gk:
+        try:
+            return AiClient("groq", _groq_model(gk), gk)
+        except AiUnavailable:
+            return None
     key = os.environ.get("GEMINI_API_KEY", "")
     if not key:                                   # Streamlit Cloud: الأسرار في st.secrets
         try:

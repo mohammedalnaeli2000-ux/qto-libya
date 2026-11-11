@@ -7,6 +7,7 @@
 """
 from __future__ import annotations
 import json
+import re
 import os
 import time
 import urllib.error
@@ -16,7 +17,8 @@ from typing import Callable, Optional
 from core import config
 
 
-FALLBACK = {"gemini": ["gemini-3.5-flash", "gemini-flash-latest", "gemini-3.8-flash", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"]}     # بدائل عند انشغال النموذج
+FALLBACK = {"gemini": ["gemini-3.5-flash", "gemini-flash-latest", "gemini-3.8-flash", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"],
+            "groq": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile", "openai/gpt-oss-20b", "llama-3.1-8b-instant"]}     # بدائل عند انشغال النموذج
 
 
 class AiUnavailable(Exception):
@@ -132,7 +134,7 @@ class AiClient:
     def chat(self, system: str, history: list[dict], max_tokens: int = 4096) -> str:
         """محادثة نصية حرة (المساعد) مع إعادة المحاولة عند ضغط الخادم (429/500/503)،
         ثم نماذج بديلة لنفس المزوّد (Gemini) إن بقي النموذج المختار مشغولاً."""
-        models = [self.model] + [m for m in FALLBACK.get(self.kind, []) if m != self.model]
+        models = [self.model] + [m for m in FALLBACK.get(self.provider, []) if m != self.model]
         last: Exception | None = None
         for model in models:
             for attempt in range(3):
@@ -180,7 +182,8 @@ class AiClient:
             if e.status not in (400, 422):
                 raise
             r = self._t("POST", f"{self.base}/chat/completions", h, {"model": model, "messages": msgs}, timeout=120)
-        return r["choices"][0]["message"]["content"]
+        txt = r["choices"][0]["message"]["content"] or ""
+        return re.sub(r"<think>.*?</think>\s*", "", txt, flags=re.S)   # بعض النماذج تُرجع تفكيرها
 
     def list_models(self) -> list[str]:
         """القائمة الحقيقية الحالية من المزوّد (تشمل كل النماذج المتاحة لحسابك)."""
