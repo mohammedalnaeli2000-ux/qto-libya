@@ -132,6 +132,8 @@ st.markdown("<div class='small'>من الأوتوكاد: SAVEAS ← DXF. ملف�
 up = st.file_uploader("ملف DXF", type=["dxf"], label_visibility="collapsed")
 sample = ROOT / "data" / "sample_flat.dxf"
 use_sample = sample.exists() and st.button("🏠 ليس معي ملف الآن: جرّب بمخطط شقة نموذجية", use_container_width=True)
+if sample.exists() and not P.files and up is None and st.query_params.get("demo") and not st.session_state.get("demo_done"):
+    use_sample = st.session_state["demo_done"] = True                # رابط ?demo=1 يفتح مباشرة على المخطط النموذجي
 if use_sample:
     up = type("Up", (), {"name": "شقة-نموذجية.dxf", "getbuffer": lambda self: sample.read_bytes()})()
 if up is not None and (not P.files or Path(P.files[0].path).name != up.name):
