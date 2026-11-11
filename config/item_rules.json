@@ -1,0 +1,513 @@
+[
+ {
+  "id": "floor_interior",
+  "title": "تشطيب الأرضية الداخلية",
+  "applies_to": [
+   "bathroom",
+   "kitchen",
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage",
+   "laundry"
+  ],
+  "measure": "floor_area",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    7
+   ],
+   "unit": "m2",
+   "any": [
+    "بلاط ارضي|بلاط ارضي|سراميك ارضي|سيراميك ارضي|ارضيات|باركيه|بورسلين|موزايكو|فينيل|ايبوكسي"
+   ],
+   "none": [
+    "خارجي|ارصفه|ساحات|حمض|معامل|سارية|اسمنتيه|مانعه الانزلاق|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع تشطيب الأرضية"
+ },
+ {
+  "id": "floor_exterior",
+  "title": "أرضيات الشرفات والأفنية والمواقف",
+  "applies_to": [
+   "balcony",
+   "yard",
+   "parking"
+  ],
+  "measure": "floor_area",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    7
+   ],
+   "unit": "m2",
+   "any": [
+    "ارضيات خارجيه|مانعه الانزلاق|ساحات|ارصفه|حجر طبيعي"
+   ],
+   "none": [
+    "معشق|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر تشطيب الأرضية الخارجية"
+ },
+ {
+  "id": "wall_ceramic",
+  "title": "سيراميك الجدران (أسطح مبللة)",
+  "applies_to": [
+   "bathroom",
+   "kitchen"
+  ],
+  "measure": "wall_area_tiled",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    7
+   ],
+   "unit": "m2",
+   "any": [
+    "سيراميك حائطي|سراميك حائطي"
+   ],
+   "none": [
+    "فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع سيراميك الجدران"
+ },
+ {
+  "id": "skirting",
+  "title": "وزرات الأرضيات",
+  "applies_to": [
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage"
+  ],
+  "measure": "skirting_length",
+  "unit": "lm",
+  "item": {
+   "chapters": [
+    7
+   ],
+   "unit": "lm",
+   "any": [
+    "وزره"
+   ],
+   "none": [
+    "اورك|اطار|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع الوزرة"
+ },
+ {
+  "id": "plaster_internal",
+  "title": "لياسة داخلية (جدران وأسقف)",
+  "applies_to": [
+   "bathroom",
+   "kitchen",
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage",
+   "laundry"
+  ],
+  "measure": "wall_plus_ceiling",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    6
+   ],
+   "unit": "m2",
+   "any": [
+    "لياسه داخليه"
+   ],
+   "none": [
+    "جبسيه|علاوه"
+   ]
+  },
+  "question": "اختر نوع اللياسة الداخلية"
+ },
+ {
+  "id": "waterproof_wet",
+  "title": "عزل مائي لأرضيات الحمامات والمطابخ",
+  "applies_to": [
+   "bathroom",
+   "kitchen"
+  ],
+  "measure": "floor_area",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    5
+   ],
+   "unit": "m2",
+   "any": [
+    "لزوم الحمامات والمطابخ"
+   ]
+  },
+  "question": "اختر نوع العزل المائي"
+ },
+ {
+  "id": "door_main",
+  "title": "أبواب رئيسية",
+  "applies_to": [
+   "bathroom",
+   "kitchen",
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage",
+   "laundry",
+   "stairs",
+   "balcony"
+  ],
+  "measure": "door_area:main",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    8,
+    9
+   ],
+   "unit": "m2",
+   "any": [
+    "ابواب رئيسيه"
+   ],
+   "none": [
+    "فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع الباب الرئيسي"
+ },
+ {
+  "id": "door_interior",
+  "title": "أبواب داخلية",
+  "applies_to": [
+   "kitchen",
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage",
+   "laundry",
+   "stairs"
+  ],
+  "measure": "door_area:interior",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    8,
+    9
+   ],
+   "unit": "m2",
+   "any": [
+    "ابواب داخليه|ابواب من ضلفه|ابواب ونوافذ|ابواب فارغ"
+   ],
+   "none": [
+    "دورات المياه|حمام|رئيسيه|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع الأبواب الداخلية"
+ },
+ {
+  "id": "door_bath",
+  "title": "أبواب الحمامات",
+  "applies_to": [
+   "bathroom"
+  ],
+  "measure": "door_area:bath",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    8,
+    9
+   ],
+   "unit": "m2",
+   "any": [
+    "ابواب دورات المياه|ابواب حمام|ابواب ونوافذ|ابواب من ضلفه"
+   ],
+   "none": [
+    "رئيسيه|داخليه|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع باب الحمام"
+ },
+ {
+  "id": "window",
+  "title": "نوافذ",
+  "applies_to": [
+   "bathroom",
+   "kitchen",
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage",
+   "laundry",
+   "stairs",
+   "balcony"
+  ],
+  "measure": "window_area",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    8,
+    9
+   ],
+   "unit": "m2",
+   "any": [
+    "نوافذ|شبابيك"
+   ],
+   "none": [
+    "مقبض|ستائر|قفل|حشو|صندوق|قواطع|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع النوافذ"
+ },
+ {
+  "id": "glass",
+  "title": "زجاج الفتحات",
+  "applies_to": [
+   "bathroom",
+   "kitchen",
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage",
+   "laundry",
+   "stairs",
+   "balcony"
+  ],
+  "measure": "window_area",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    10
+   ],
+   "unit": "m2",
+   "any": [
+    "زجاج"
+   ],
+   "none": [
+    "واجهات|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع الزجاج (أو تخطَّ إن كان ضمن سعر النافذة)",
+  "optional": true
+ },
+ {
+  "id": "wc_western",
+  "title": "مرحاض إفرنجي",
+  "applies_to": [
+   "bathroom"
+  ],
+  "measure": "fixture:toilet_western",
+  "unit": "count",
+  "item": {
+   "chapters": [
+    11
+   ],
+   "unit": "count",
+   "any": [
+    "مرحاض افرنجي"
+   ],
+   "none": [
+    "غطاء|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع المرحاض الإفرنجي"
+ },
+ {
+  "id": "wc_eastern",
+  "title": "مرحاض شرقي",
+  "applies_to": [
+   "bathroom"
+  ],
+  "measure": "fixture:toilet_eastern",
+  "unit": "count",
+  "item": {
+   "chapters": [
+    11
+   ],
+   "unit": "count",
+   "any": [
+    "مرحاض شرقي"
+   ],
+   "none": [
+    "بطاريه|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع المرحاض الشرقي"
+ },
+ {
+  "id": "basin",
+  "title": "حوض غسيل أيدي",
+  "applies_to": [
+   "bathroom"
+  ],
+  "measure": "fixture:basin",
+  "unit": "count",
+  "item": {
+   "chapters": [
+    11
+   ],
+   "unit": "count",
+   "any": [
+    "حوض غسيل ايدي"
+   ],
+   "none": [
+    "ذوي الاحتياجات|فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع حوض الأيدي"
+ },
+ {
+  "id": "shower",
+  "title": "حوض قدم (دش)",
+  "applies_to": [
+   "bathroom"
+  ],
+  "measure": "fixture:shower",
+  "unit": "count",
+  "item": {
+   "chapters": [
+    11
+   ],
+   "unit": "count",
+   "any": [
+    "حوض قدم"
+   ],
+   "none": [
+    "فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع حوض القدم (الدش)"
+ },
+ {
+  "id": "bathtub",
+  "title": "بانيو",
+  "applies_to": [
+   "bathroom"
+  ],
+  "measure": "fixture:bathtub",
+  "unit": "count",
+  "item": {
+   "chapters": [
+    11
+   ],
+   "unit": "count",
+   "any": [
+    "بانيو"
+   ],
+   "none": [
+    "فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع البانيو"
+ },
+ {
+  "id": "kitchen_sink",
+  "title": "حوض مطبخ",
+  "applies_to": [
+   "kitchen"
+  ],
+  "measure": "fixture:kitchen_sink",
+  "unit": "count",
+  "item": {
+   "chapters": [
+    11
+   ],
+   "unit": "count",
+   "any": [
+    "حوض غسيل اواني"
+   ],
+   "none": [
+    "فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع حوض المطبخ"
+ },
+ {
+  "id": "ceiling_suspended",
+  "title": "سقف معلق (اختياري)",
+  "applies_to": [
+   "living",
+   "majlis",
+   "corridor",
+   "bedroom"
+  ],
+  "measure": "ceiling_area",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    12
+   ],
+   "unit": "m2",
+   "any": [
+    "سقف معلق|اسقف معلقه"
+   ],
+   "none": [
+    "فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "هل تريد سقفاً معلقاً؟ اختر النوع أو تخطَّ",
+  "optional": true
+ },
+ {
+  "id": "blockwork",
+  "title": "مباني الطوب (حسب السماكة)",
+  "applies_to": [],
+  "measure": "blockwork",
+  "unit": "m2",
+  "item": {
+   "chapters": [
+    4
+   ],
+   "unit": "m2",
+   "any": [
+    "."
+   ],
+   "thickness_from_text": true,
+   "none": [
+    "فك|هدم|ازاله|تكسير|صيانه|اعاده"
+   ]
+  },
+  "question": "اختر نوع الطوب",
+  "scope": "project",
+  "confirm": true
+ },
+ {
+  "id": "paint_interior",
+  "title": "دهان داخلي (جدران وأسقف)",
+  "question": "اختر نوع الدهان الداخلي",
+  "applies_to": [
+   "bathroom",
+   "kitchen",
+   "living",
+   "bedroom",
+   "majlis",
+   "corridor",
+   "storage",
+   "laundry"
+  ],
+  "measure": "wall_plus_ceiling",
+  "unit": "m2",
+  "confirm": true,
+  "item": {
+   "chapters": [
+    17
+   ],
+   "any": [
+    "دهان بلاستيك|طلاء بلاستيك|دهان زيتي|طلاء رخامي|جرافيت"
+   ],
+   "none": [
+    "خارجي|قديمه|معدنيه|خشبيه|كرانيش|بروزات"
+   ],
+   "unit": "m2"
+  }
+ }
+]

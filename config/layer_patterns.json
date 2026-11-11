@@ -1,0 +1,88 @@
+{
+  "spaces": [
+    "room",
+    "space",
+    "area",
+    "zone",
+    "فراغ",
+    "غرف",
+    "مساح",
+    "a-area",
+    "rooms",
+    "boundary"
+  ],
+  "partitions": [
+    "partition",
+    "قواطع",
+    "قاطع",
+    "part"
+  ],
+  "walls": [
+    "wall",
+    "جدار",
+    "جدران",
+    "حائط",
+    "حوائط",
+    "a-wall",
+    "مباني",
+    "بلوك",
+    "brick"
+  ],
+  "doors": [
+    "(?<![a-z])door",
+    "(?<![\\u0600-\\u06FF])باب",
+    "(?<![\\u0600-\\u06FF])ابواب",
+    "a-door"
+  ],
+  "windows": [
+    "wind",
+    "window",
+    "شباك",
+    "شبابيك",
+    "نافذ",
+    "نوافذ",
+    "a-glaz",
+    "a-wind",
+    "glaz"
+  ],
+  "texts": [
+    "text",
+    "annot",
+    "name",
+    "اسم",
+    "نص",
+    "نصوص",
+    "a-anno",
+    "note",
+    "txt"
+  ],
+  "sanitary": [
+    "sanit",
+    "plumb",
+    "fixture",
+    "صحي",
+    "اصحاح",
+    "أصحاح",
+    "a-fixt",
+    "p-fixt",
+    "toilet",
+    "sink"
+  ],
+  "ignore": [
+    "(door|wind\\w*|باب|ابواب|شباك|شبابيك)\\s*[-_ ]?\\s*tags?",
+    "dim",
+    "hatch",
+    "grid",
+    "axis",
+    "محور",
+    "أبعاد",
+    "ابعاد",
+    "defpoints",
+    "title",
+    "border",
+    "frame",
+    "furn",
+    "أثاث",
+    "اثاث"
+  ]
+}

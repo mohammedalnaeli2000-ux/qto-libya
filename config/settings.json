@@ -1,0 +1,82 @@
+{
+ "fallback_unit": "cm",
+ "unit_override": null,
+ "room_height": 2.8,
+ "wet_wall_tile_height": 2.4,
+ "door_height": 2.1,
+ "window_height": 1.2,
+ "window_sill": 0.9,
+ "wall_thickness_cm": {
+  "walls": 20,
+  "partitions": 10
+ },
+ "wall_mode": "auto",
+ "opening_tolerance_m": 0.5,
+ "min_space_area_m2": 1.0,
+ "ai_confidence_threshold": 0.85,
+ "gemini_model": "gemini-2.5-flash",
+ "door_main_patterns": [
+  "main",
+  "رئيس",
+  "entrance",
+  "entry",
+  "front",
+  "md"
+ ],
+ "fixture_patterns": {
+  "toilet_western": [
+   "wc",
+   "toilet",
+   "افرنجي",
+   "إفرنجي",
+   "مرحاض"
+  ],
+  "toilet_eastern": [
+   "شرقي",
+   "arabic",
+   "squat",
+   "عربي"
+  ],
+  "basin": [
+   "basin",
+   "wash",
+   "lavabo",
+   "مغسلة",
+   "حوض"
+  ],
+  "shower": [
+   "shower",
+   "دش",
+   "شاور"
+  ],
+  "bathtub": [
+   "bath_tub",
+   "bathtub",
+   "بانيو",
+   "tub"
+  ],
+  "kitchen_sink": [
+   "ksink",
+   "kitchen_sink",
+   "sink",
+   "حوض مطبخ"
+  ]
+ },
+ "owner_priority": [
+  "bathroom",
+  "kitchen",
+  "laundry",
+  "bedroom",
+  "majlis",
+  "living",
+  "storage",
+  "corridor",
+  "balcony",
+  "stairs"
+ ],
+ "wall_deduct_openings_in_blockwork": true,
+ "space_detection": "auto",
+ "door_gap_m": 1.3,
+ "price_markup_pct": 0,
+ "export_prices": "list"
+}

@@ -1,0 +1,72 @@
+{
+  "bathroom": {
+    "label": "حمام / دورة مياه",
+    "wet": true,
+    "interior": true
+  },
+  "kitchen": {
+    "label": "مطبخ",
+    "wet": true,
+    "interior": true
+  },
+  "living": {
+    "label": "صالة / معيشة",
+    "wet": false,
+    "interior": true
+  },
+  "bedroom": {
+    "label": "غرفة نوم",
+    "wet": false,
+    "interior": true
+  },
+  "majlis": {
+    "label": "مجلس / ضيوف",
+    "wet": false,
+    "interior": true
+  },
+  "corridor": {
+    "label": "ممر / مدخل",
+    "wet": false,
+    "interior": true
+  },
+  "stairs": {
+    "label": "سلم",
+    "wet": false,
+    "interior": true
+  },
+  "balcony": {
+    "label": "شرفة / تراس",
+    "wet": true,
+    "interior": false
+  },
+  "roof": {
+    "label": "سطح",
+    "wet": true,
+    "interior": false
+  },
+  "storage": {
+    "label": "مخزن",
+    "wet": false,
+    "interior": true
+  },
+  "laundry": {
+    "label": "غرفة غسيل",
+    "wet": true,
+    "interior": true
+  },
+  "parking": {
+    "label": "موقف / جراج",
+    "wet": false,
+    "interior": false
+  },
+  "yard": {
+    "label": "فناء",
+    "wet": false,
+    "interior": false
+  },
+  "unknown": {
+    "label": "غير مصنّف",
+    "wet": false,
+    "interior": false
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "bathroom": [
+    "حمام",
+    "دورة مياه",
+    "دوره مياه",
+    "دورات المياه",
+    "مرحاض",
+    "toilet",
+    "wc",
+    "bath",
+    "bathroom",
+    "w.c",
+    "lavatory",
+    "restroom"
+  ],
+  "kitchen": [
+    "مطبخ",
+    "kitchen",
+    "pantry",
+    "مطبخ تحضيري"
+  ],
+  "living": [
+    "صالة",
+    "صاله",
+    "معيشة",
+    "معيشه",
+    "جلوس",
+    "living",
+    "hall",
+    "family",
+    "lounge",
+    "دور معيشة"
+  ],
+  "bedroom": [
+    "غرفة نوم",
+    "غرفه نوم",
+    "نوم",
+    "bedroom",
+    "bed room",
+    "master",
+    "bed"
+  ],
+  "majlis": [
+    "مجلس",
+    "ضيوف",
+    "استقبال",
+    "majlis",
+    "guest",
+    "reception",
+    "dining",
+    "سفرة",
+    "طعام"
+  ],
+  "corridor": [
+    "ممر",
+    "مدخل",
+    "رواق",
+    "corridor",
+    "entrance",
+    "lobby",
+    "entry",
+    "passage",
+    "فيستيبول"
+  ],
+  "stairs": [
+    "سلم",
+    "درج",
+    "stair",
+    "stairs",
+    "staircase"
+  ],
+  "balcony": [
+    "شرفة",
+    "شرفه",
+    "تراس",
+    "بلكونة",
+    "بلكونه",
+    "balcony",
+    "terrace"
+  ],
+  "roof": [
+    "سطح",
+    "roof"
+  ],
+  "storage": [
+    "مخزن",
+    "store",
+    "storage",
+    "غرفة تخزين",
+    "خزين"
+  ],
+  "laundry": [
+    "غسيل",
+    "laundry",
+    "مغسلة ملابس",
+    "نشر"
+  ],
+  "parking": [
+    "موقف",
+    "جراج",
+    "كراج",
+    "parking",
+    "garage",
+    "carport"
+  ],
+  "yard": [
+    "فناء",
+    "حوش",
+    "حديقة",
+    "yard",
+    "garden",
+    "courtyard"
+  ]
+}

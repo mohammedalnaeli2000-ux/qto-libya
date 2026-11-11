@@ -1,0 +1,157 @@
+{
+ "gemini": {
+  "label": "Google Gemini",
+  "kind": "gemini",
+  "base_url": "https://generativelanguage.googleapis.com/v1beta",
+  "key_env": "GEMINI_API_KEY",
+  "needs_key": true,
+  "key_help": "aistudio.google.com/apikey",
+  "models": [
+   "gemini-2.5-pro",
+   "gemini-2.5-flash",
+   "gemini-2.5-flash-lite",
+   "gemini-2.0-flash"
+  ]
+ },
+ "openai": {
+  "label": "OpenAI",
+  "kind": "openai",
+  "base_url": "https://api.openai.com/v1",
+  "key_env": "OPENAI_API_KEY",
+  "needs_key": true,
+  "key_help": "platform.openai.com/api-keys",
+  "models": [
+   "gpt-5",
+   "gpt-5-mini",
+   "gpt-4.1",
+   "gpt-4.1-mini",
+   "gpt-4o",
+   "gpt-4o-mini",
+   "o4-mini",
+   "o3"
+  ]
+ },
+ "anthropic": {
+  "label": "Anthropic Claude",
+  "kind": "anthropic",
+  "base_url": "https://api.anthropic.com/v1",
+  "key_env": "ANTHROPIC_API_KEY",
+  "needs_key": true,
+  "key_help": "console.anthropic.com",
+  "models": [
+   "claude-fable-5-2",
+   "claude-opus-5-5",
+   "claude-sonnet-5-5",
+   "claude-haiku-5-5",
+   "claude-opus-4-1",
+   "claude-sonnet-4-5",
+   "claude-haiku-4-5"
+  ]
+ },
+ "openrouter": {
+  "label": "OpenRouter (مئات النماذج بمفتاح واحد)",
+  "kind": "openai",
+  "base_url": "https://openrouter.ai/api/v1",
+  "key_env": "OPENROUTER_API_KEY",
+  "needs_key": true,
+  "key_help": "openrouter.ai/keys",
+  "models": [
+   "google/gemini-2.5-flash",
+   "anthropic/claude-sonnet-4.5",
+   "openai/gpt-4o-mini",
+   "deepseek/deepseek-chat",
+   "meta-llama/llama-3.3-70b-instruct"
+  ]
+ },
+ "deepseek": {
+  "label": "DeepSeek",
+  "kind": "openai",
+  "base_url": "https://api.deepseek.com/v1",
+  "key_env": "DEEPSEEK_API_KEY",
+  "needs_key": true,
+  "key_help": "platform.deepseek.com",
+  "models": [
+   "deepseek-chat",
+   "deepseek-reasoner"
+  ]
+ },
+ "groq": {
+  "label": "Groq",
+  "kind": "openai",
+  "base_url": "https://api.groq.com/openai/v1",
+  "key_env": "GROQ_API_KEY",
+  "needs_key": true,
+  "key_help": "console.groq.com/keys",
+  "models": [
+   "llama-3.3-70b-versatile",
+   "llama-3.1-8b-instant"
+  ]
+ },
+ "mistral": {
+  "label": "Mistral",
+  "kind": "openai",
+  "base_url": "https://api.mistral.ai/v1",
+  "key_env": "MISTRAL_API_KEY",
+  "needs_key": true,
+  "key_help": "console.mistral.ai",
+  "models": [
+   "mistral-large-latest",
+   "mistral-small-latest"
+  ]
+ },
+ "xai": {
+  "label": "xAI Grok",
+  "kind": "openai",
+  "base_url": "https://api.x.ai/v1",
+  "key_env": "XAI_API_KEY",
+  "needs_key": true,
+  "key_help": "console.x.ai",
+  "models": [
+   "grok-4",
+   "grok-3",
+   "grok-3-mini"
+  ]
+ },
+ "together": {
+  "label": "Together AI",
+  "kind": "openai",
+  "base_url": "https://api.together.xyz/v1",
+  "key_env": "TOGETHER_API_KEY",
+  "needs_key": true,
+  "key_help": "api.together.ai",
+  "models": [
+   "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+  ]
+ },
+ "ollama": {
+  "label": "Ollama (محلي، بلا إنترنت)",
+  "kind": "openai",
+  "base_url": "http://localhost:11434/v1",
+  "key_env": "",
+  "needs_key": false,
+  "key_help": "",
+  "models": [
+   "llama3.1",
+   "qwen2.5",
+   "gemma2"
+  ]
+ },
+ "lmstudio": {
+  "label": "LM Studio (محلي)",
+  "kind": "openai",
+  "base_url": "http://localhost:1234/v1",
+  "key_env": "",
+  "needs_key": false,
+  "key_help": "",
+  "models": []
+ },
+ "custom": {
+  "label": "مزوّد آخر متوافق مع OpenAI (عنوان مخصص)",
+  "kind": "openai",
+  "base_url": "",
+  "key_env": "",
+  "needs_key": false,
+  "key_help": "",
+  "models": []
+ }
+}
