@@ -97,7 +97,7 @@ def _groq_model(key: str) -> str:
 
 
 def ai_client():
-    gk = _secret("GROQ_API_KEY")                  # الموقع: Groq مجاني ويعمل من أي سيرفر (جيميناي المجاني محجوب من سيرفرات الاستضافة)
+    gk = _secret("GROQ_API_KEY") or _secret("GROK_API_KEY")                  # الموقع: Groq مجاني ويعمل من أي سيرفر (جيميناي المجاني محجوب من سيرفرات الاستضافة)
     if gk:
         try:
             return AiClient("groq", _groq_model(gk), gk)
