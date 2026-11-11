@@ -134,6 +134,8 @@ class AiClient:
     def chat(self, system: str, history: list[dict], max_tokens: int = 4096) -> str:
         """محادثة نصية حرة (المساعد) مع إعادة المحاولة عند ضغط الخادم (429/500/503)،
         ثم نماذج بديلة لنفس المزوّد (Gemini) إن بقي النموذج المختار مشغولاً."""
+        if self.provider == "groq":
+            max_tokens = min(max_tokens, 1500)          # حد Groq المجاني يحسب الرد المتوقع ضمن الطلب
         models = [self.model] + [m for m in FALLBACK.get(self.provider, []) if m != self.model]
         last: Exception | None = None
         for model in models:
@@ -150,8 +152,8 @@ class AiClient:
                         raise AiUnavailable(f"مفتاح الذكاء الاصطناعي غير صالح أو بلا صلاحية ({e.status}: {why})") from e
                     if e.status == 400 and "API key" in e.text:
                         raise AiUnavailable("مفتاح الذكاء الاصطناعي غير صالح (400)") from e
-                    if e.status == 404:
-                        break                                    # النموذج غير متاح: جرّب البديل
+                    if e.status in (404, 413):
+                        break                                    # النموذج غير متاح أو حدّه أصغر من الطلب: جرّب البديل
                     if e.status not in (429, 500, 502, 503, 504):
                         raise
                     self._sleep(2 * (attempt + 1))

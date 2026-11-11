@@ -39,7 +39,7 @@ SYSTEM = """أنت «مساعد QTO Libya»، مساعد ذكي داخل برن�
    الأنواع المسموحة فقط:
    - {"type":"set_space_type","space_id":"...","value":"<مفتاح نوع من القائمة>"}
    - {"type":"rename_space","space_id":"...","value":"اسم"}
-   - {"type":"answer_question","question_key":"...","item_id":<رقم من خيارات ذلك السؤال>}
+   - {"type":"answer_question","question_key":"...","item_id":<رقم من خيارات ذلك السؤال: option_sets[options_set]>}
    - {"type":"skip_question","question_key":"..."}
    - {"type":"set_quantity","line_key":"<مفتاح السطر>","qty":<رقم>}
    - {"type":"set_price","item_id":<رقم>,"price":<سعر الوحدة بالدينار>}
@@ -62,7 +62,7 @@ def build_context(win) -> str:
                  "files": [{"file": f.path.split("\\")[-1].split("/")[-1], "floor": f.floor, "kind": f.kind} for f in p.files]}
     if r is None:
         ctx["status"] = "لم يُحلَّل أي مخطط بعد"
-        return json.dumps(ctx, ensure_ascii=False)
+        return json.dumps(ctx, ensure_ascii=False, separators=(",", ":"))
     ctx["spaces"] = [{"id": s.id, "name": s.name, "type": s.type, "area": round(s.area, 2), "perimeter": round(s.perimeter, 2),
                       "confidence": round(s.confidence, 2), "openings": len(s.openings), "fixtures": s.fixtures}
                      for s in r.spaces[:150]]
@@ -72,14 +72,21 @@ def build_context(win) -> str:
                      "flags": [f for f, on in (("تقديرية", L.estimated), ("يدوي", L.manual), ("معدّلة", L.modified)) if on]}
                     for L in r.lines[:300]]
     ctx["total"] = round(sum(L.total for L in r.lines), 2)
-    ctx["questions"] = [{"key": q.key, "title": q.title, "spaces": q.space_ids[:10],
-                         "options": [{"item_id": o.id, "code": o.code, "desc": o.description[:70], "price": o.unit_price}
-                                     for o in q.options[:10]]}
-                        for q in r.resolution.questions[:40]]
+    sets: dict[str, list] = {}                      # الأسئلة تتكرر بنفس الخيارات لكل غرفة: نرسل كل قائمة خيارات مرة واحدة
+    qs = []
+    for q in r.resolution.questions[:30]:
+        opts = [{"item_id": o.id, "code": o.code, "desc": o.description[:45], "price": o.unit_price} for o in q.options[:6]]
+        sig = json.dumps([o["item_id"] for o in opts])
+        sid = next((k for k, v in sets.items() if json.dumps([o["item_id"] for o in v]) == sig), None)
+        if sid is None:
+            sid = f"S{len(sets) + 1}"; sets[sid] = opts
+        qs.append({"key": q.key, "title": q.title, "spaces": q.space_ids[:10], "options_set": sid})
+    ctx["questions"] = qs
+    ctx["option_sets"] = sets
     ctx["unclassified_spaces"] = [s.id for s in r.unclassified[:60]]
     ctx["pending_chapters"] = [x.get("title") for x in r.pending]
     ctx["warnings"] = r.warnings[:12]
-    return json.dumps(ctx, ensure_ascii=False)
+    return json.dumps(ctx, ensure_ascii=False, separators=(",", ":"))
 
 
 _BLOCK = re.compile(r"```actions\s*(.*?)```", re.S)
