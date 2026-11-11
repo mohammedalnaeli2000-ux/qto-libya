@@ -70,7 +70,7 @@ S: Session = st.session_state.s
 P = S.project
 
 
-GROQ_PREF = ("openai/gpt-oss-120b", "llama-3.3-70b-versatile", "moonshotai/kimi-k2-instruct", "qwen/qwen3-32b",
+GROQ_PREF = ("llama-3.3-70b-versatile", "openai/gpt-oss-120b", "moonshotai/kimi-k2-instruct", "qwen/qwen3-32b",
              "openai/gpt-oss-20b", "llama-3.1-8b-instant")
 
 

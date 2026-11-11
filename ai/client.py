@@ -18,7 +18,7 @@ from core import config
 
 
 FALLBACK = {"gemini": ["gemini-3.5-flash", "gemini-flash-latest", "gemini-3.8-flash", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"],
-            "groq": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile", "openai/gpt-oss-20b", "llama-3.1-8b-instant"]}     # بدائل عند انشغال النموذج
+            "groq": ["llama-3.3-70b-versatile", "openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.1-8b-instant"]}     # بدائل عند انشغال النموذج
 
 
 class AiUnavailable(Exception):
@@ -141,7 +141,11 @@ class AiClient:
         for model in models:
             for attempt in range(3):
                 try:
-                    return self._chat_once(model, system, history, max_tokens)
+                    out = self._chat_once(model, system, history, max_tokens)
+                    if out and out.strip():
+                        return out
+                    last = AiUnavailable("رد فارغ من النموذج")
+                    break                                        # رد فارغ (نموذج استهلك حده في التفكير): جرّب البديل
                 except AiHttpError as e:
                     last = e
                     if e.status in (401, 403):
@@ -179,7 +183,10 @@ class AiClient:
         h = {"Authorization": f"Bearer {self.key}"} if self.key else {}
         msgs = [{"role": "system", "content": system}] + [{"role": m["role"], "content": m["content"]} for m in history]
         try:
-            r = self._t("POST", f"{self.base}/chat/completions", h, {"model": model, "messages": msgs, "temperature": 0.3}, timeout=120)
+            body = {"model": model, "messages": msgs, "temperature": 0.3, "max_tokens": max_tokens}
+            if "gpt-oss" in model:
+                body["reasoning_effort"] = "low"
+            r = self._t("POST", f"{self.base}/chat/completions", h, body, timeout=120)
         except AiHttpError as e:
             if e.status not in (400, 422):
                 raise
